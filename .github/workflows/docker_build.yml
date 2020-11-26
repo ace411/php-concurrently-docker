@@ -4,11 +4,11 @@ jobs:
   cd:
     runs-on: ubuntu-latest
 
-  steps:
-    - uses: actions/checkout@v1
-    - name: Build php-concurrently Docker image for PHP 7.2
-      run: docker build -f Dockerfile72 -t concurrently .
-    - name: Build php-concurrently Docker image for PHP 7.3
-      run: docker build -f Dockerfile73 -t concurrently .
-    - name: Build php-concurrently Docker image for PHP 7.4
-      run: docker build -f Dockerfile73 -t concurrently .
+    steps:
+      - uses: actions/checkout@v1
+      - name: Build php-concurrently Docker image for PHP 7.2
+        run: docker build -f Dockerfile72 -t concurrently .
+      - name: Build php-concurrently Docker image for PHP 7.3
+        run: docker build -f Dockerfile73 -t concurrently .
+      - name: Build php-concurrently Docker image for PHP 7.4
+        run: docker build -f Dockerfile73 -t concurrently .
