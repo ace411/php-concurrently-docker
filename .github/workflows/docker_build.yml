@@ -1,0 +1,14 @@
+name: php-concurrently-docker build
+on: [push, pull_request]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+  steps:
+    - uses: actions/checkout@v1
+    - name: Build php-concurrently Docker image for PHP 7.2
+      run: docker run -f Dockerfile72 -t concurrently .
+    - name: Build php-concurrently Docker image for PHP 7.3
+      run: docker run -f Dockerfile73 -t concurrently .
+    - name: Build php-concurrently Docker image for PHP 7.4
+      run: docker run -f Dockerfile73 -t concurrently .

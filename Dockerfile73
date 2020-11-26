@@ -1,0 +1,15 @@
+FROM php:7.3-cli
+
+LABEL maintainer="Lochemem Bruno Michael <lochbm@gmail.com>,Chun-Sheng, Li <peter279k@gmail.com>"
+
+RUN apt-get update
+RUN apt-get install -y git zip
+
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+
+RUN git clone https://github.com/ace411/php-concurrently && cd php-concurrently && \
+    composer install
+
+WORKDIR /php-concurrently
+
+ENTRYPOINT ["php", "concurrently"]
